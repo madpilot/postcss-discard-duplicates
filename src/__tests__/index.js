@@ -10,7 +10,7 @@ const tests = [{
 }, {
     message: 'should remove duplicate rules (2)',
     fixture: 'h1{color:#000}h2{color:#fff}h1{color:#000}',
-    expected: 'h2{color:#fff}h1{color:#000}',
+    expected: 'h1{color:#000}h2{color:#fff}',
 }, {
     message: 'should remove duplicate declarations',
     fixture: 'h1{font-weight:bold;font-weight:bold}',
@@ -26,7 +26,7 @@ const tests = [{
 }, {
     message: 'should remove duplicate @rules (2)',
     fixture: '@charset "utf-8";@charset "hello!";@charset "utf-8";',
-    expected: '@charset "hello!";@charset "utf-8";',
+    expected: '@charset "utf-8";@charset "hello!";',
 }, {
     message: 'should remove duplicates inside @media queries',
     fixture: '@media print{h1{display:block}h1{display:block}}',
@@ -78,7 +78,7 @@ const tests = [{
 }, {
     message: 'should remove duplicate rules and declarations',
     fixture: 'h1{color:#000}h2{color:#fff}h1{color:#000;color:#000}',
-    expected: 'h2{color:#fff}h1{color:#000}',
+    expected: 'h1{color:#000}h2{color:#fff}',
 }];
 
 tests.forEach(test => {

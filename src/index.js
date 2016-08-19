@@ -26,8 +26,10 @@ function dedupe (root) {
             }
         }
 
-        for (let i = result.length - 2; ~i; i -= 1) {
-            result[i].remove();
+        let len = result.length;
+        while (len > 1) {
+            result[len - 1].remove();
+            len--;
         }
     });
 }
